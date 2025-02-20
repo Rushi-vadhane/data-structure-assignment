@@ -1,49 +1,26 @@
-#include <stdio.h>
-#include <conio.h>
-int main()
-{
-    int a[10], i, n;
-    int choice, sum = 0;
-    printf("\n enter array limit:");
-    scanf("%d", &n);  
-    printf("\n enter array elements:");
-    for (i = 0; i < n; i++)
+#include<stdio.h>
+#include<conio.h>
+int main(){
+    int a[10],i,n;
+    int occur,count=0;
+    printf("\n enter a limit:");
+    scanf("%d",&n);
+    printf("\n enter sorted array elements:");
+    for ( i = 0; i < n; i++)
     {
-        scanf("%d", &a[i]);
+        scanf("%d",&a[i]);
     }
-    printf("\n 1.sum of all even index element of an array.\n");
-    printf("\n 2.sum of all odd index element of an array.\n");
-    printf("\n.................................................!");
-    printf("\n enter your choice:");
-    scanf("%d", &choice);
-
-    switch (choice)
+    printf("\n enter number for finding occurrences:");
+    scanf("%d",&occur);
+    for ( i = 0; i < n; i++)
     {
-    case 1:
-        for (i = 0; i < n; i++)
+        if (a[i]==occur)
         {
-            if (i % 2 == 0)
-            {
-                sum = sum + a[i];
-            }
+            count++;
         }
-        printf("\n sum of all even index element is %d ", sum);
-        sum = 0;
-        break;
-    case 2:
-        for (i = 0; i < n; i++)
-        {
-            if (i % 2 != 0)
-            {
-                sum = sum + a[i];
-            }
-        }
-        printf("\n sum of all odd index element is %d", sum);
-        sum = 0;
-        break;
-
-    default:
-        printf("\n wrong input....!");
-        break;
+        
     }
+    printf("\n the number %d is counted up to %d times in given array.",occur,count);
+    
+    
 }
