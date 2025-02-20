@@ -1,29 +1,42 @@
-#include<stdio.h>
-#include<conio.h>
-int main(){
-    int a[10],i,n;
-    int b[10];
-    printf("\n enter array limit:");
-    scanf("%d",&n);
-    printf("\n enter array elements:");
-    for ( i = 0; i < n; i++)
+#include <stdio.h>
+#include <conio.h>
+int main()
+{
+    int a[10], b[10], n1;
+    int k[20], p, c;
+    int i;
+    printf("\n Enter  polynomial's limit:");
+    scanf("%d", &n1);
+    printf("\n Enter first polynomial elements:");
+    for (i = 0; i < n1; i++)
     {
-        scanf("%d",&a[i]);
+        printf("\nEnter coefficient and power under [%d]:", n1);
+        scanf("%d%d", &c, &p);
+        a[p] = c;
+    }
+    printf("\n Enter second polynomial elements:");
+    for (i = 0; i < n1; i++)
+    {
+        printf("\nEnter coefficient and power under [%d]:", n1);
+        scanf("%d%d", &c, &p);
+        b[p] = c;
     }
 
-    for ( i = 0; i < n; i++)
+    for (i = 0; i < n1; i++)
     {
-        b[i]=a[i];
+        k[i] = a[i] * b[i];
     }
 
-    printf("\n the previous array:");
-    for ( i = 0; i < n; i++)
+    printf("\n The multiplication of two polynomial :");
+    for (i = n1 - 1; i >= 0; i--)
     {
-        printf("\t%d",a[i]);
+        if (i == 0)
+        {
+            printf("%d", k[i]);
+        }
+        else
+        {
+            printf("%dx^%d+", k[i], i);
+        }
     }
-    printf("\n the copied array:");
-    for ( i = 0; i < n; i++)
-    {
-        printf("\t%d",b[i]);
-    }  
 }
